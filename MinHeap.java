@@ -188,9 +188,25 @@ public class MinHeap {
     } // method swap
 
     /**
-     * THIS IS YOUR ASSIGNMENT
+     * This will restore the min-hoop property by moving the most recently added
+     * element upward until it is in the correct position
      */
     private void heapifyUp() {
+        // Start at the last inserted element 
+        int child = this.usage - 1; 
+
+        // get its parent 
+        int parent = parent(child);
+
+        // Continue while the child is not the root and child < parent 
+        while (child > 0 && this.underlying[child] < this.underlying[parent]) { 
+            // Swap child with parent to maintian heap property 
+            swap(parent, child); 
+
+            // Move up the tree
+            child = parent; 
+            parent = parent(child); 
+        }
     } // method heapifyUp
 
     /**
